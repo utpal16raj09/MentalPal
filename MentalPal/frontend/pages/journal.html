@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MentalHealthPal - Journal</title>
+    <link rel="stylesheet" href="../resource/css/journal.css">
+
+
+    
+</head>
+<body>
+    <header>
+        <h1>MentalHealthPal Journal</h1>
+    </header>
+
+    <main>
+        <section class="add-entry">
+            <h2>Add New Entry</h2>
+            <form id="journalForm">
+                <input type="text" id="title" placeholder="Title" required>
+                <textarea id="content" placeholder="Write your thoughts here..." rows="5" required></textarea>
+                <button type="submit">Add Entry</button>
+            </form>
+        </section>
+
+        <section class="entries">
+            <h2>Your Entries</h2>
+            <div id="entriesList">
+                <!-- Journal entries will appear here -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById('journalForm');
+        const entriesList = document.getElementById('entriesList');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+
+            if(title && content) {
+                const entryDiv = document.createElement('div');
+                entryDiv.classList.add('entry');
+                entryDiv.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+                entriesList.prepend(entryDiv);
+
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>
