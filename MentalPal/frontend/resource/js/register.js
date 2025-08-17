@@ -55,10 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const gender = document.getElementById('gender').value;
             const profession = document.getElementById('profession').value;
 
-            // Save the user's name for the dashboard welcome message
+            // Save the user's first name for the dashboard welcome message
             localStorage.setItem('userName', firstName.charAt(0).toUpperCase() + firstName.slice(1));
 
-            // In a real application, you would send this data to an API
+            // Create a single object with all the user's data
             const userData = {
                 firstName: firstName,
                 lastName: lastName,
@@ -66,6 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 gender: gender,
                 profession: profession
             };
+            
+            // NEW: Save the entire userData object to local storage
+            localStorage.setItem('registeredUserData', JSON.stringify(userData));
 
             console.log("Registration data submitted:", userData);
             

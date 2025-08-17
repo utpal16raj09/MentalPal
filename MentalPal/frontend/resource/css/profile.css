@@ -1,0 +1,338 @@
+/* Import Google Fonts for a professional look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* The root variables and theme logic are already in shared.css, so we'll just add the profile-specific styles here */
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color-light);
+    transition: border-color var(--transition-speed) var(--transition-ease);
+}
+
+.profile-header h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: var(--text-color-light);
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.profile-card {
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--border-color-light);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--box-shadow-light);
+    transition: all var(--transition-speed) var(--transition-ease);
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-card.user-info {
+    text-align: center;
+    align-items: center;
+}
+
+.user-avatar-large img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--accent-color);
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.user-avatar-large h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color-light);
+}
+
+.user-avatar-large span {
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    opacity: 0.7;
+}
+
+.user-details {
+    width: 100%;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.detail-label {
+    font-weight: 500;
+    color: var(--text-color-light);
+    opacity: 0.8;
+}
+
+.detail-value {
+    color: var(--text-color-light);
+}
+
+.edit-profile-btn {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.user-stats {
+    text-align: center;
+}
+
+.user-stats h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-item {
+    background-color: var(--bg-color-light);
+    border-radius: 8px;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color-light);
+}
+
+.stat-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color-light);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-color-light);
+    opacity: 0.7;
+    margin-top: 0.25rem;
+}
+
+.recent-activity {
+    grid-column: span 2;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.card-header .view-all {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.activity-icon-wrap {
+    background-color: var(--highlight-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+}
+
+.activity-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.activity-title {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.activity-date {
+    font-size: 0.8rem;
+    color: var(--text-color-light);
+    opacity: 0.6;
+}
+
+/* ----------- MODAL STYLES ----------- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.modal-content {
+    background-color: var(--card-bg-light);
+    margin: 15% auto;
+    padding: 2.5rem;
+    border: 1px solid var(--border-color-light);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--box-shadow-light);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    animation: slideIn 0.4s ease-out;
+}
+
+.modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.modal-header h2 {
+    color: var(--text-color-light);
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.close-btn {
+    color: var(--text-color-light);
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--accent-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#editProfileForm {
+    width: 100%;
+}
+
+#editProfileForm .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+#editProfileForm .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color-light);
+    font-weight: 500;
+}
+
+#editProfileForm .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: var(--text-color-light);
+    background-color: var(--card-bg-light);
+    transition: all var(--transition-speed) var(--transition-ease);
+}
+
+#editProfileForm .form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(216, 191, 216, 0.15);
+}
+
+#editProfileForm .btn-primary {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#editProfileForm .btn-primary:hover {
+    background-color: #a45a66;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive adjustments for the modal */
+@media screen and (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+}
