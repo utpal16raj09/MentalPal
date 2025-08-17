@@ -1,101 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MentalHealthPal - Journal</title>
-  <link rel="stylesheet" href="../resource/css/journal.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal - MentalPal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../const/shared.css">
+    <link rel="stylesheet" href="../resource/css/dashboard.css">
+    <link rel="stylesheet" href="../resource/css/journal.css">
 </head>
 <body>
-  <header>
-    <h1>MentalHealthPal Journal</h1>
-  </header>
-
-  <main>
-    <!-- Add Entry Form -->
-    <section class="add-entry">
-      <h2>Add New Entry</h2>
-      <form id="journalForm">
-        <input type="text" id="title" placeholder="Title" required>
-        <textarea id="content" placeholder="Write your thoughts here..." rows="5" required></textarea>
-        <button type="submit">Add Entry</button>
-      </form>
-    </section>
-
-    <!-- Entries Section -->
-    <section class="entries">
-      <h2>Your Entries</h2>
-      <div id="entriesList">
-        <!-- Example entry with reactions -->
-        <div class="entry">
-          <h3>My First Journal Entry</h3>
-          <p>Today I felt really good after completing my project!</p>
-          <div class="reactions">
-            <div class="reaction">
-              <input type="checkbox" id="happy1">
-              <label for="happy1">😊</label>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <a href="dashboard.html" class="sidebar__logo">
+                    <img src="../resource/images/logo.png" alt="MentalPal Logo" height="30">
+                    <span>MentalPal</span>
+                </a>
+                <button class="sidebar__toggle">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
             </div>
-            <div class="reaction">
-              <input type="checkbox" id="love1">
-              <label for="love1">❤️</label>
-            </div>
-            <div class="reaction">
-              <input type="checkbox" id="like1">
-              <label for="like1">👍</label>
-            </div>
-            <div class="reaction">
-              <input type="checkbox" id="sad1">
-              <label for="sad1">😢</label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <script>
-    const form = document.getElementById('journalForm');
-    const entriesList = document.getElementById('entriesList');
-    let entryCount = 2; // start from 2 since first entry uses "1"
+            <nav class="sidebar__nav">
+                <ul class="nav">
+                    <li class="nav__item">
+                        <a href="dashboard.html" class="nav__link">
+                            <i class="nav__icon fas fa-home"></i>
+                            <span class="nav__text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="journal.html" class="nav__link active">
+                            <i class="nav__icon fas fa-book-open"></i>
+                            <span class="nav__text">Journal</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="meditation.html" class="nav__link">
+                            <i class="nav__icon fas fa-spa"></i>
+                            <span class="nav__text">Meditation</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="calendar.html" class="nav__link">
+                            <i class="nav__icon fas fa-calendar-alt"></i>
+                            <span class="nav__text">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="chatbot.html" class="nav__link">
+                            <i class="nav__icon fas fa-robot"></i>
+                            <span class="nav__text">Chatbot</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="challenges.html" class="nav__link">
+                            <i class="nav__icon fas fa-trophy"></i>
+                            <span class="nav__text">Challenges</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const title = document.getElementById('title').value;
-      const content = document.getElementById('content').value;
-
-      if (title && content) {
-        const entryId = entryCount++;
-        const entryDiv = document.createElement('div');
-        entryDiv.classList.add('entry');
-
-        entryDiv.innerHTML = `
-          <h3>${title}</h3>
-          <p>${content}</p>
-          <div class="reactions">
-            <div class="reaction">
-              <input type="checkbox" id="happy${entryId}">
-              <label for="happy${entryId}">😊</label>
+            <div class="sidebar__footer">
+                <ul class="nav">
+                    <li class="nav__item">
+                        <a href="profile.html" class="nav__link">
+                            <i class="nav__icon fas fa-user-circle"></i>
+                            <span class="nav__text">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="settings.html" class="nav__link">
+                            <i class="nav__icon fas fa-cog"></i>
+                            <span class="nav__text">Settings</span>
+                        </a>
+                    </li>
+                     <li class="nav__item">
+                        <a href="#" id="logoutBtn" class="nav__link">
+                            <i class="nav__icon fas fa-sign-out-alt"></i>
+                            <span class="nav__text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="reaction">
-              <input type="checkbox" id="love${entryId}">
-              <label for="love${entryId}">❤️</label>
-            </div>
-            <div class="reaction">
-              <input type="checkbox" id="like${entryId}">
-              <label for="like${entryId}">👍</label>
-            </div>
-            <div class="reaction">
-              <input type="checkbox" id="sad${entryId}">
-              <label for="sad${entryId}">😢</label>
-            </div>
-          </div>
-        `;
+        </aside>
+        
+        <main class="main-content">
+            <header class="journal-header">
+                <h1>My Journal</h1>
+                <p>Express your thoughts and track your feelings here.</p>
+            </header>
 
-        entriesList.prepend(entryDiv);
-        form.reset();
-      }
-    });
-  </script>
+            <section class="add-entry-section">
+                <div class="dashboard-card new-entry-card">
+                    <h2>Add New Entry</h2>
+                    <form id="journalForm">
+                        <div class="form-group">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" id="title" class="form-control" placeholder="Title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="content" class="form-label">Content</label>
+                            <textarea id="content" class="form-control" placeholder="Write your thoughts here..." rows="5" required></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Add Entry</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="journal-entries-section">
+                <h2>Your Entries</h2>
+                <div id="entriesList">
+                    <p class="no-entries-message">No journal entries yet. Add your first one!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <script src="../const/shared.js"></script>
+    <script src="../resource/js/journal.js"></script>
 </body>
 </html>
