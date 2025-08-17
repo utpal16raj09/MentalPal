@@ -1,0 +1,131 @@
+// --- File: ../resource/js/dashboard.js ---
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Mood Tracker Functionality
+    const moodOptions = document.querySelectorAll('.mood-option');
+    moodOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            moodOptions.forEach(opt => opt.classList.remove('active'));
+            option.classList.add('active');
+            const selectedMood = option.getAttribute('data-mood');
+            console.log(`User selected mood: ${selectedMood}`);
+            showNotification(`Mood logged: ${selectedMood.charAt(0).toUpperCase() + selectedMood.slice(1)}!`);
+        });
+    });
+
+    // Daily Check-in Form Submission
+    const dailyCheckinForm = document.getElementById('dailyCheckinForm');
+    if (dailyCheckinForm) {
+        dailyCheckinForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const sleepHours = dailyCheckinForm.querySelector('input[type="number"]').value;
+            const stressLevel = dailyCheckinForm.querySelector('input[type="range"]').value;
+            console.log(`Daily check-in submitted: Sleep=${sleepHours}, Stress=${stressLevel}`);
+            showNotification('Daily check-in submitted successfully!');
+        });
+    }
+
+    // Dynamic User Name
+    const userNameSpan = document.getElementById('userName');
+    const storedUserName = localStorage.getItem('userName') || 'User';
+    userNameSpan.textContent = storedUserName;
+
+    // Mood History Chart
+    const moodChartCanvas = document.getElementById('moodChart');
+    if (moodChartCanvas) {
+        const moodData = {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                label: 'Mood Rating',
+                data: [4, 5, 3, 5, 4, 5, 5], 
+                backgroundColor: 'rgba(216, 191, 216, 0.6)', 
+                borderColor: '#d8bfd8',
+                borderWidth: 2,
+                tension: 0.4,
+                fill: true,
+            }]
+        };
+
+        const moodChartConfig = {
+            type: 'line',
+            data: moodData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 5,
+                        grid: {
+                            color: 'rgba(234, 234, 234, 0.5)',
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                switch (value) {
+                                    case 1: return 'Terrible';
+                                    case 2: return 'Bad';
+                                    case 3: return 'Neutral';
+                                    case 4: return 'Good';
+                                    case 5: return 'Great!';
+                                }
+                                return '';
+                            },
+                            color: getComputedStyle(document.body).getPropertyValue('--text-color-light')
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(234, 234, 234, 0.5)',
+                        },
+                        ticks: {
+                            color: getComputedStyle(document.body).getPropertyValue('--text-color-light')
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        };
+
+        const moodChart = new Chart(moodChartCanvas, moodChartConfig);
+        
+        // Update chart colors on theme change
+        const observer = new MutationObserver(() => {
+            const newTextColor = getComputedStyle(document.body).getPropertyValue('--text-color-light');
+            const newGridColor = getComputedStyle(document.body).getPropertyValue('--border-color-light');
+            moodChart.options.scales.y.ticks.color = newTextColor;
+            moodChart.options.scales.x.ticks.color = newTextColor;
+            moodChart.options.scales.y.grid.color = newGridColor;
+            moodChart.options.scales.x.grid.color = newGridColor;
+            moodChart.update();
+        });
+        observer.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
+    }
+
+    // Quick Actions Redirects
+    const journalBtn = document.querySelector('.quick-actions .btn-block:nth-child(1)');
+    const meditationBtn = document.querySelector('.quick-actions .btn-block:nth-child(2)');
+    const challengesBtn = document.querySelector('.quick-actions .btn-block:nth-child(3)');
+
+    if (journalBtn) journalBtn.addEventListener('click', () => window.location.href = 'journal.html');
+    if (meditationBtn) meditationBtn.addEventListener('click', () => window.location.href = 'meditation.html');
+    if (challengesBtn) challengesBtn.addEventListener('click', () => window.location.href = 'challenges.html');
+
+    // Logout Functionality
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const confirmed = confirm("Are you sure you want to log out?");
+            if (confirmed) {
+                localStorage.removeItem('userName');
+                localStorage.removeItem('theme');
+                localStorage.removeItem('registeredUsers'); 
+                window.location.href = 'login.html'; 
+            }
+        });
+    }
+});

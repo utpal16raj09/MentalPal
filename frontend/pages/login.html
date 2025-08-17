@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MentalPal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../resource/css/auth.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="../resource/images/logo.png" alt="MentalPal Logo" class="login-logo" height="40">
+                <h1>Welcome Back</h1>
+                <p>Sign in to your account</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            
+            <div class="login-footer">
+                <a href="#" class="forgot-password" data-modal="forgotPasswordModal">Forgot Password?</a>
+                <p>Don't have an account? <a href="#" class="signup-link" data-modal="signupModal">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-header">
+                <h2>Create an Account</h2>
+            </div>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupEmail" class="form-label">Email</label>
+                    <input type="email" id="signupEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword" class="form-label">Password</label>
+                    <input type="password" id="signupPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-header">
+                <h2>Forgot Password</h2>
+            </div>
+            <form id="forgotPasswordForm">
+                <div class="form-group">
+                    <label for="resetEmail" class="form-label">Enter your email to reset your password</label>
+                    <input type="email" id="resetEmail" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Send Reset Link</button>
+            </form>
+        </div>
+    </div>
+    
+    <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script src="../resource/js/auth.js"></script>
+
+</body>
+</html>
