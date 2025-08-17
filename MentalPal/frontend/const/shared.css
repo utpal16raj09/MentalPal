@@ -59,24 +59,28 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    /* Allow the body content to scroll */
-    overflow-y: auto; 
 }
 
 /* Corrected background logic */
 body[data-theme="light"] {
     background-image: url('../resource/images/bg-light.jpg');
-    opacity: 0.8;
 }
 
 body[data-theme="dark"] {
     background-image: url('../resource/images/bg-dark.jpg');
-    opacity: 0.8;
 }
 
+/* This is the key change for the transparent effect */
 .app-container {
     display: flex;
     min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+[data-theme="dark"] .app-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for dark mode */
 }
 
 /* --- Sidebar Styles --- */
@@ -264,6 +268,7 @@ body[data-theme="dark"] {
     width: 100%;
     padding: 2rem 3rem;
     transition: margin-left var(--transition-speed) var(--transition-ease);
+    overflow-y: auto;
 }
 
 .sidebar.collapsed ~ .main-content {
