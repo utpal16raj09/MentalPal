@@ -1,56 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MentalHealthPal - Journal</title>
-    <link rel="stylesheet" href="../resource/css/journal.css">
-
-
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MentalHealthPal - Journal</title>
+  <link rel="stylesheet" href="../resource/css/journal.css">
 </head>
 <body>
-    <header>
-        <h1>MentalHealthPal Journal</h1>
-    </header>
+  <header>
+    <h1>MentalHealthPal Journal</h1>
+  </header>
 
-    <main>
-        <section class="add-entry">
-            <h2>Add New Entry</h2>
-            <form id="journalForm">
-                <input type="text" id="title" placeholder="Title" required>
-                <textarea id="content" placeholder="Write your thoughts here..." rows="5" required></textarea>
-                <button type="submit">Add Entry</button>
-            </form>
-        </section>
+  <main>
+    <!-- Add Entry Form -->
+    <section class="add-entry">
+      <h2>Add New Entry</h2>
+      <form id="journalForm">
+        <input type="text" id="title" placeholder="Title" required>
+        <textarea id="content" placeholder="Write your thoughts here..." rows="5" required></textarea>
+        <button type="submit">Add Entry</button>
+      </form>
+    </section>
 
-        <section class="entries">
-            <h2>Your Entries</h2>
-            <div id="entriesList">
-                <!-- Journal entries will appear here -->
+    <!-- Entries Section -->
+    <section class="entries">
+      <h2>Your Entries</h2>
+      <div id="entriesList">
+        <!-- Example entry with reactions -->
+        <div class="entry">
+          <h3>My First Journal Entry</h3>
+          <p>Today I felt really good after completing my project!</p>
+          <div class="reactions">
+            <div class="reaction">
+              <input type="checkbox" id="happy1">
+              <label for="happy1">😊</label>
             </div>
-        </section>
-    </main>
+            <div class="reaction">
+              <input type="checkbox" id="love1">
+              <label for="love1">❤️</label>
+            </div>
+            <div class="reaction">
+              <input type="checkbox" id="like1">
+              <label for="like1">👍</label>
+            </div>
+            <div class="reaction">
+              <input type="checkbox" id="sad1">
+              <label for="sad1">😢</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script>
-        const form = document.getElementById('journalForm');
-        const entriesList = document.getElementById('entriesList');
+  <script>
+    const form = document.getElementById('journalForm');
+    const entriesList = document.getElementById('entriesList');
+    let entryCount = 2; // start from 2 since first entry uses "1"
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-            const title = document.getElementById('title').value;
-            const content = document.getElementById('content').value;
+      const title = document.getElementById('title').value;
+      const content = document.getElementById('content').value;
 
-            if(title && content) {
-                const entryDiv = document.createElement('div');
-                entryDiv.classList.add('entry');
-                entryDiv.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
-                entriesList.prepend(entryDiv);
+      if (title && content) {
+        const entryId = entryCount++;
+        const entryDiv = document.createElement('div');
+        entryDiv.classList.add('entry');
 
-                form.reset();
-            }
-        });
-    </script>
+        entryDiv.innerHTML = `
+          <h3>${title}</h3>
+          <p>${content}</p>
+          <div class="reactions">
+            <div class="reaction">
+              <input type="checkbox" id="happy${entryId}">
+              <label for="happy${entryId}">😊</label>
+            </div>
+            <div class="reaction">
+              <input type="checkbox" id="love${entryId}">
+              <label for="love${entryId}">❤️</label>
+            </div>
+            <div class="reaction">
+              <input type="checkbox" id="like${entryId}">
+              <label for="like${entryId}">👍</label>
+            </div>
+            <div class="reaction">
+              <input type="checkbox" id="sad${entryId}">
+              <label for="sad${entryId}">😢</label>
+            </div>
+          </div>
+        `;
+
+        entriesList.prepend(entryDiv);
+        form.reset();
+      }
+    });
+  </script>
 </body>
 </html>

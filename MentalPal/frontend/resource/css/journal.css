@@ -1,97 +1,94 @@
-/* Reset some defaults */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Body styling */
+/* General styling */
 body {
-    background: #f4f7f6;
-    color: #333;
-    line-height: 1.6;
+  background: #f4f7f6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  color: #333;
 }
 
-/* Header */
 header {
-    background: #6C63FF;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* Main container */
-main {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
-
-/* Add entry section */
-.add-entry {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
-}
-
-.add-entry h2 {
-    margin-bottom: 15px;
-    color: #6C63FF;
-}
-
-.add-entry input,
-.add-entry textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-.add-entry button {
-    background: #6C63FF;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s;
-}
-
-.add-entry button:hover {
-    background: #5548c8;
-}
-
-/* Entries section */
-.entries h2 {
-    margin-bottom: 15px;
-    color: #6C63FF;
-}
-
-#entriesList {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  background: #6C63FF;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 30px;
 }
 
 .entry {
-    background: #fff;
-    padding: 15px 20px;
-    border-left: 5px solid #6C63FF;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-left: 5px solid #6C63FF;
 }
 
 .entry h3 {
-    margin-bottom: 8px;
+  margin-bottom: 10px;
+  color: #6C63FF;
 }
 
-.entry p {
-    color: #555;
+.reactions {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+/* Hide checkboxes */
+.reaction input {
+  display: none;
+}
+
+/* Emoji label styling */
+.reaction label {
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.reaction label:hover {
+  transform: scale(1.2);
+  background: #eee;
+}
+
+/* Selected reaction */
+.reaction input:checked + label {
+  background: #6C63FF;
+  color: #fff;
+  transform: scale(1.2);
+}
+/* Reactions Section */
+.reactions {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+/* Hide checkboxes */
+.reaction input {
+  display: none;
+}
+
+/* Emoji style */
+.reaction label {
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.reaction label:hover {
+  transform: scale(1.2);
+  background: #eee;
+}
+
+/* Selected reaction */
+.reaction input:checked + label {
+  background: #6C63FF;
+  color: #fff;
+  transform: scale(1.2);
 }
