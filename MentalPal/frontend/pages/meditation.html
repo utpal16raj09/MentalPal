@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation - MentalPal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../const/shared.css">
+    <link rel="stylesheet" href="../resource/css/dashboard.css">
+    <link rel="stylesheet" href="../resource/css/meditation.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <a href="dashboard.html" class="sidebar__logo">
+                    <img src="../resource/images/logo.png" alt="MentalPal Logo" height="30">
+                    <span>MentalPal</span>
+                </a>
+                <button class="sidebar__toggle">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar__nav">
+                <ul class="nav">
+                    <li class="nav__item">
+                        <a href="dashboard.html" class="nav__link">
+                            <i class="nav__icon fas fa-home"></i>
+                            <span class="nav__text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="journal.html" class="nav__link">
+                            <i class="nav__icon fas fa-book-open"></i>
+                            <span class="nav__text">Journal</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="meditation.html" class="nav__link active">
+                            <i class="nav__icon fas fa-spa"></i>
+                            <span class="nav__text">Meditation</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="calendar.html" class="nav__link">
+                            <i class="nav__icon fas fa-calendar-alt"></i>
+                            <span class="nav__text">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="chatbot.html" class="nav__link">
+                            <i class="nav__icon fas fa-robot"></i>
+                            <span class="nav__text">Chatbot</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="challenges.html" class="nav__link">
+                            <i class="nav__icon fas fa-trophy"></i>
+                            <span class="nav__text">Challenges</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar__footer">
+                <ul class="nav">
+                    <li class="nav__item">
+                        <a href="profile.html" class="nav__link">
+                            <i class="nav__icon fas fa-user-circle"></i>
+                            <span class="nav__text">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="settings.html" class="nav__link">
+                            <i class="nav__icon fas fa-cog"></i>
+                            <span class="nav__text">Settings</span>
+                        </a>
+                    </li>
+                     <li class="nav__item">
+                        <a href="#" id="logoutBtn" class="nav__link">
+                            <i class="nav__icon fas fa-sign-out-alt"></i>
+                            <span class="nav__text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="meditation-header">
+                <h1>Meditation</h1>
+                <p>Find your moment of calm and focus with our guided meditations.</p>
+            </header>
+
+            <div class="meditation-grid">
+                <section class="dashboard-card meditation-card" data-meditation-id="1">
+                    <div class="card-header">
+                        <h2>Mindful Breathing</h2>
+                        <span class="meditation-duration">10 min</span>
+                    </div>
+                    <p class="meditation-description">A simple guided session to center yourself and calm your mind by focusing on your breath.</p>
+                    <button class="btn btn-secondary btn-block start-meditation-btn">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                </section>
+
+                <section class="dashboard-card meditation-card" data-meditation-id="2">
+                    <div class="card-header">
+                        <h2>Quick Stress Relief</h2>
+                        <span class="meditation-duration">5 min</span>
+                    </div>
+                    <p class="meditation-description">A short but effective session designed to help you quickly de-stress and reset your day.</p>
+                    <button class="btn btn-secondary btn-block start-meditation-btn">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                </section>
+                
+                <section class="dashboard-card meditation-card" data-meditation-id="3">
+                    <div class="card-header">
+                        <h2>Body Scan</h2>
+                        <span class="meditation-duration">15 min</span>
+                    </div>
+                    <p class="meditation-description">Become more aware of your body and release tension from head to toe with this guided session.</p>
+                    <button class="btn btn-secondary btn-block start-meditation-btn">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                </section>
+
+                <section class="dashboard-card meditation-card" data-meditation-id="4">
+                    <div class="card-header">
+                        <h2>Morning Intention</h2>
+                        <span class="meditation-duration">8 min</span>
+                    </div>
+                    <p class="meditation-description">Start your day by setting a positive intention and cultivating a mindful mindset for the hours ahead.</p>
+                    <button class="btn btn-secondary btn-block start-meditation-btn">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                </section>
+                
+                <section class="dashboard-card meditation-card" data-meditation-id="5">
+                    <div class="card-header">
+                        <h2>Sleep Meditation</h2>
+                        <span class="meditation-duration">20 min</span>
+                    </div>
+                    <p class="meditation-description">A deeply relaxing guided meditation to help you fall asleep faster and get better quality rest.</p>
+                    <button class="btn btn-secondary btn-block start-meditation-btn">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                </section>
+                
+                <section class="dashboard-card meditation-card" data-meditation-id="6">
+                    <div class="card-header">
+                        <h2>Focus & Productivity</h2>
+                        <span class="meditation-duration">12 min</span>
+                    </div>
+                    <p class="meditation-description">Improve your concentration and clear your mind before tackling a new task.</p>
+                    <button class="btn btn-secondary btn-block start-meditation-btn">
+                        <i class="fas fa-play"></i> Start
+                    </button>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <script src="../const/shared.js"></script>
+    <script src="../resource/js/meditation.js"></script>
+</body>
+</html>

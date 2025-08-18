@@ -27,13 +27,13 @@
 /* Challenges grid and card styling */
 .challenges-grid {
     display: grid;
-    /* Forces a two-column layout */
+    /* This is the key change for a 2-card layout */
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem 9.5rem;
+    gap: 6rem 12rem;
     
     /* Centers the grid and limits its width on large screens */
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 1000px;
+    margin: auto auto;
 }
 
 /* Responsive adjustment for a single column on small screens */
@@ -44,13 +44,10 @@
 }
 
 .challenge-card {
-    height: 300px;
-    width: 400px;
-    margin-left: -40px;
     background-color: var(--card-bg-light);
     border: 1px solid var(--border-color-light);
     border-radius: 12px;
-    padding: 1rem;
+    padding: 2.5rem;
     box-shadow: var(--box-shadow-light);
     transition: all var(--transition-speed) var(--transition-ease);
     display: flex;
@@ -135,12 +132,22 @@
     text-align: right;
 }
 
+/* New styling for the challenges footer and buttons */
+.challenges-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.challenges-footer .btn-block {
+    width: 250px;
+}
+
 /* Button styling (using shared classes but overriding as needed) */
 .challenge-card .btn-block {
     width: 100%;
     font-size: 0.9rem;
-    max-height: 40px;
     padding: 0.6rem;
-    justify-content: center;
-    align-content: center;
 }

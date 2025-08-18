@@ -49,38 +49,42 @@
     padding: 0;
 }
 
-body {
+/* This is the key fix to prevent the sidebar from scrolling with the body */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     font-family: 'Poppins', sans-serif;
     color: var(--text-color-light);
     line-height: 1.6;
     transition: background-image var(--transition-speed) var(--transition-ease), 
                 color var(--transition-speed) var(--transition-ease);
-    min-height: 100vh;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-/* Corrected background logic */
 body[data-theme="light"] {
     background-image: url('../resource/images/bg-light.jpg');
+    opacity: 0.85;
 }
 
 body[data-theme="dark"] {
     background-image: url('../resource/images/bg-dark.jpg');
+    opacity: 0.85;
 }
 
-/* This is the key change for the transparent effect */
 .app-container {
     display: flex;
     min-height: 100vh;
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
-    backdrop-filter: blur(10px); /* Frosted glass effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 [data-theme="dark"] .app-container {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for dark mode */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* --- Sidebar Styles --- */
@@ -162,6 +166,7 @@ body[data-theme="dark"] {
 .nav {
     list-style: none;
     flex-grow: 1;
+    overflow-y: auto;
 }
 
 .nav__item {
@@ -269,6 +274,7 @@ body[data-theme="dark"] {
     padding: 2rem 3rem;
     transition: margin-left var(--transition-speed) var(--transition-ease);
     overflow-y: auto;
+    height: 100vh;
 }
 
 .sidebar.collapsed ~ .main-content {

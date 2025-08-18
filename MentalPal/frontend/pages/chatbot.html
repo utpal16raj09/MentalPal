@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - MentalPal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../const/shared.css">
+    <link rel="stylesheet" href="../resource/css/dashboard.css">
+    <link rel="stylesheet" href="../resource/css/chatbot.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <a href="dashboard.html" class="sidebar__logo">
+                    <img src="../resource/images/logo.png" alt="MentalPal Logo" height="30">
+                    <span>MentalPal</span>
+                </a>
+                <button class="sidebar__toggle">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar__nav">
+                <ul class="nav">
+                    <li class="nav__item">
+                        <a href="dashboard.html" class="nav__link">
+                            <i class="nav__icon fas fa-home"></i>
+                            <span class="nav__text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="journal.html" class="nav__link">
+                            <i class="nav__icon fas fa-book-open"></i>
+                            <span class="nav__text">Journal</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="meditation.html" class="nav__link">
+                            <i class="nav__icon fas fa-spa"></i>
+                            <span class="nav__text">Meditation</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="calendar.html" class="nav__link">
+                            <i class="nav__icon fas fa-calendar-alt"></i>
+                            <span class="nav__text">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="chatbot.html" class="nav__link active">
+                            <i class="nav__icon fas fa-robot"></i>
+                            <span class="nav__text">Chatbot</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="challenges.html" class="nav__link">
+                            <i class="nav__icon fas fa-trophy"></i>
+                            <span class="nav__text">Challenges</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar__footer">
+                <ul class="nav">
+                    <li class="nav__item">
+                        <a href="profile.html" class="nav__link">
+                            <i class="nav__icon fas fa-user-circle"></i>
+                            <span class="nav__text">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="settings.html" class="nav__link">
+                            <i class="nav__icon fas fa-cog"></i>
+                            <span class="nav__text">Settings</span>
+                        </a>
+                    </li>
+                     <li class="nav__item">
+                        <a href="#" id="logoutBtn" class="nav__link">
+                            <i class="nav__icon fas fa-sign-out-alt"></i>
+                            <span class="nav__text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="chatbot-header">
+                <img src="../resource/images/icon.png" alt="Chatbot Avatar" class="chatbot-avatar-small">
+                <h1>MentalPal Chatbot</h1>
+                <p>Hello! How can I help you today?</p>
+            </header>
+
+            <div class="chat-window dashboard-card">
+                <div id="chatMessages" class="chat-messages">
+                    <div class="message bot-message">
+                        <p>Hi there! I'm here to listen. How are you feeling today?</p>
+                        <span class="message-timestamp">Just now</span>
+                    </div>
+                </div>
+                <form id="chatForm" class="chat-form">
+                    <input type="text" id="chatInput" placeholder="Type your message..." class="form-control">
+                    <button type="submit" class="btn btn-primary chat-send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+    
+    <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <script src="../const/shared.js"></script>
+    <script src="../resource/js/chatbot.js"></script>
+</body>
+</html>

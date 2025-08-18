@@ -1,0 +1,85 @@
+/* Import Google Fonts for a professional look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Header specific to the meditation page */
+.meditation-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.meditation-header h1 {
+    font-size: 2.5rem; /* Slightly larger for emphasis */
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.meditation-header p {
+    font-size: 1.1rem; /* Slightly larger for readability */
+    color: var(--text-color-light);
+    opacity: 0.8;
+}
+
+/* Meditation grid and card styling */
+.meditation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted min-width for better spacing */
+    gap: 2rem; /* Increased spacing between cards */
+}
+
+.meditation-card {
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--border-color-light);
+    border-radius: 12px;
+    padding: 1.5rem; /* Increased padding inside the card */
+    box-shadow: var(--box-shadow-light);
+    transition: all var(--transition-speed) var(--transition-ease);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.meditation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.meditation-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.meditation-card h2 {
+    font-size: 1.4rem; /* Slightly larger heading */
+    font-weight: 600;
+    margin: 0;
+}
+
+.meditation-duration {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    white-space: nowrap;
+}
+
+.meditation-description {
+    font-size: 1rem; /* Increased font size for readability */
+    color: var(--text-color-light);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Button styling (using shared classes but overriding as needed) */
+.start-meditation-btn {
+    width: 100%;
+    padding: 0.75rem; /* Increased button padding */
+    font-size: 1rem;
+}

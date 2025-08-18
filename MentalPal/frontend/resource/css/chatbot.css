@@ -1,0 +1,128 @@
+/* Import Google Fonts for a professional look */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+/* Chatbot Header */
+.chatbot-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.chatbot-avatar-small {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.chatbot-header h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+.chatbot-header p {
+    font-size: 1rem;
+    color: var(--text-color-light);
+    opacity: 0.8;
+}
+
+/* Chat Window */
+.chat-window {
+    display: flex;
+    flex-direction: column;
+    height: 65vh; /* Reduced height to make the chatbox smaller */
+    width: 80%;
+    justify-content: space-between;
+
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.chat-window.dashboard-card {
+    width: 80%;            /* or any fixed width you want */
+    margin: 0 auto;        /* centers horizontally */
+    display: flex;
+    flex-direction: column;
+    height: 65vh;          /* existing height */
+    padding: 1.5rem;       /* existing padding */
+    box-sizing: border-box;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Message Bubbles */
+.message {
+    max-width: 70%;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.bot-message {
+    background-color: var(--primary-color);
+    color: #fff;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.user-message {
+    background-color: var(--secondary-color);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.message p {
+    margin: 0;
+}
+
+.message-timestamp {
+    position: absolute;
+    bottom: -1rem;
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+.bot-message .message-timestamp {
+    left: 1rem;
+}
+
+.user-message .message-timestamp {
+    right: 1rem;
+}
+
+/* Chat Input Form */
+.chat-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#chatInput {
+    flex-grow: 1;
+}
+
+.chat-send-btn {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,6 +1,8 @@
 // --- File: ../const/shared.js ---
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    
     // --- Theme Toggle Logic ---
     const themeToggleBtn = document.querySelector('.theme-toggle');
     const body = document.body;

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - MentalPal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../const/shared.css">
+    <link rel="stylesheet" href="../resource/css/dashboard.css">
+    <link rel="stylesheet" href="../resource/css/calendar.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <a href="dashboard.html" class="sidebar__logo">
+                    <img src="../resource/images/logo.png" alt="MentalPal Logo" height="30">
+                    <span>MentalPal</span>
+                </a>
+                <button class="sidebar__toggle">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar__nav">
+                <ul class="nav">
+                    <li class="nav__item">
+                        <a href="dashboard.html" class="nav__link">
+                            <i class="nav__icon fas fa-home"></i>
+                            <span class="nav__text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="journal.html" class="nav__link">
+                            <i class="nav__icon fas fa-book-open"></i>
+                            <span class="nav__text">Journal</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="meditation.html" class="nav__link">
+                            <i class="nav__icon fas fa-spa"></i>
+                            <span class="nav__text">Meditation</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="calendar.html" class="nav__link active">
+                            <i class="nav__icon fas fa-calendar-alt"></i>
+                            <span class="nav__text">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="chatbot.html" class="nav__link">
+                            <i class="nav__icon fas fa-robot"></i>
+                            <span class="nav__text">Chatbot</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="challenges.html" class="nav__link">
+                            <i class="nav__icon fas fa-trophy"></i>
+                            <span class="nav__text">Challenges</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar__footer">
+                <ul class="nav">
+                    <li class="nav__item">
+                        <a href="profile.html" class="nav__link">
+                            <i class="nav__icon fas fa-user-circle"></i>
+                            <span class="nav__text">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="settings.html" class="nav__link">
+                            <i class="nav__icon fas fa-cog"></i>
+                            <span class="nav__text">Settings</span>
+                        </a>
+                    </li>
+                     <li class="nav__item">
+                        <a href="#" id="logoutBtn" class="nav__link">
+                            <i class="nav__icon fas fa-sign-out-alt"></i>
+                            <span class="nav__text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="calendar-header">
+                <div class="calendar-nav">
+                    <button id="prevMonthBtn" class="btn btn-secondary action-button"><i class="fas fa-chevron-left"></i></button>
+                    <h1 id="currentMonthYear"></h1>
+                    <button id="nextMonthBtn" class="btn btn-secondary action-button"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </header>
+
+            <div class="calendar-container dashboard-card">
+                <div class="calendar-days-of-week">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                </div>
+                <div id="calendarGrid" class="calendar-grid">
+                    </div>
+            </div>
+
+            <div class="event-list-container dashboard-card">
+                <h2 id="eventsListHeader">Events for Selected Day</h2>
+                <div id="eventsList">
+                    <p class="no-events-message">Click on a day to see events.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <script src="../const/shared.js"></script>
+    <script src="../resource/js/calendar.js"></script>
+</body>
+</html>
