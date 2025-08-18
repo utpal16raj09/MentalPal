@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges - MentalPal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../const/shared.css">
+    <link rel="stylesheet" href="../resource/css/dashboard.css">
+    <link rel="stylesheet" href="../resource/css/challenges.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar__header">
+                <a href="dashboard.html" class="sidebar__logo">
+                    <img src="../resource/images/logo.png" alt="MentalPal Logo" height="30">
+                    <span>MentalPal</span>
+                </a>
+                <button class="sidebar__toggle">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar__nav">
+                <ul class="nav">
+                    <li class="nav__item">
+                        <a href="dashboard.html" class="nav__link">
+                            <i class="nav__icon fas fa-home"></i>
+                            <span class="nav__text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="journal.html" class="nav__link">
+                            <i class="nav__icon fas fa-book-open"></i>
+                            <span class="nav__text">Journal</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="meditation.html" class="nav__link">
+                            <i class="nav__icon fas fa-spa"></i>
+                            <span class="nav__text">Meditation</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="calendar.html" class="nav__link">
+                            <i class="nav__icon fas fa-calendar-alt"></i>
+                            <span class="nav__text">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="chatbot.html" class="nav__link">
+                            <i class="nav__icon fas fa-robot"></i>
+                            <span class="nav__text">Chatbot</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="challenges.html" class="nav__link active">
+                            <i class="nav__icon fas fa-trophy"></i>
+                            <span class="nav__text">Challenges</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar__footer">
+                <ul class="nav">
+                    <li class="nav__item">
+                        <a href="profile.html" class="nav__link">
+                            <i class="nav__icon fas fa-user-circle"></i>
+                            <span class="nav__text">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="settings.html" class="nav__link">
+                            <i class="nav__icon fas fa-cog"></i>
+                            <span class="nav__text">Settings</span>
+                        </a>
+                    </li>
+                     <li class="nav__item">
+                        <a href="#" id="logoutBtn" class="nav__link">
+                            <i class="nav__icon fas fa-sign-out-alt"></i>
+                            <span class="nav__text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="challenges-header">
+                <h1>Challenges</h1>
+                <p>Start a new challenge and improve your mental well-being!</p>
+            </header>
+            
+            <div class="challenges-grid">
+                <section class="dashboard-card challenge-card">
+                    <div class="card-header">
+                        <h2>7-Day Gratitude Journal</h2>
+                        <span class="challenge-status Active">Active</span>
+                    </div>
+                    <p class="challenge-description">Write down three things you're grateful for every day to boost your positivity.</p>
+                    <div class="challenge-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                        <span class="progress-text">Progress: 75%</span>
+                    </div>
+                    <button class="btn btn-primary btn-block">Continue Challenge</button>
+                </section>
+
+                <section class="dashboard-card challenge-card">
+                    <div class="card-header">
+                        <h2>Mindful Moments</h2>
+                        <span class="challenge-status New">New</span>
+                    </div>
+                    <p class="challenge-description">Take a moment each day to focus on your breathing and surroundings.</p>
+                    <div class="challenge-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="progress-text">Progress: 0%</span>
+                    </div>
+                    <button class="btn btn-secondary btn-block">Start Challenge</button>
+                </section>
+                
+                <section class="dashboard-card challenge-card">
+                    <div class="card-header">
+                        <h2>30-Day Sleep Improvement</h2>
+                        <span class="challenge-status Completed">Completed</span>
+                    </div>
+                    <p class="challenge-description">Follow a series of steps to improve your sleep hygiene and get better rest.</p>
+                    <div class="challenge-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                        <span class="progress-text">Progress: 100%</span>
+                    </div>
+                    <button class="btn btn-secondary btn-block">View Results</button>
+                </section>
+
+            </div>
+        </main>
+    </div>
+    
+    <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <script src="../const/shared.js"></script>
+    <script src="../resource/js/challenges.js"></script>
+</body>
+</html>
