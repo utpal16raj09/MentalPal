@@ -48,19 +48,35 @@
     padding: 0;
 }
 
+/* --- Body Background --- */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-color-light);
     color: var(--text-color-light);
     line-height: 1.6;
-    transition: background-color var(--transition-speed) var(--transition-ease), 
-                color var(--transition-speed) var(--transition-ease);
+    transition: background-image 0.4s ease, color 0.4s ease;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
+/* Light theme background */
+body[data-theme="light"] {
+    background-image: url('../resource/images/bg-light.jpg');
+}
+
+/* Dark theme background */
+body[data-theme="dark"] {
+    background-image: url('../resource/images/bg-dark.jpg');
+}
+
+/* --- Make app-container transparent to show background --- */
 .app-container {
     display: flex;
     min-height: 100vh;
+    background-color: transparent; /* or rgba(255,255,255,0.2) for blur effect */
+    backdrop-filter: blur(10px); /* optional blur effect */
 }
+
 
 /* --- Sidebar Styles --- */
 .sidebar {
