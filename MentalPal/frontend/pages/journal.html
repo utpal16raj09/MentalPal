@@ -11,6 +11,7 @@
 </head>
 <body>
     <div class="app-container">
+        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar__header">
                 <a href="dashboard.html" class="sidebar__logo">
@@ -78,7 +79,7 @@
                         </a>
                     </li>
                      <li class="nav__item">
-                        <a href="#" id="logoutBtn" class="nav__link">
+                        <a href="#" class="nav__link logout-btn">
                             <i class="nav__icon fas fa-sign-out-alt"></i>
                             <span class="nav__text">Logout</span>
                         </a>
@@ -86,7 +87,8 @@
                 </ul>
             </div>
         </aside>
-        
+
+        <!-- Main Content -->
         <main class="main-content">
             <header class="journal-header">
                 <h1>My Journal</h1>
@@ -124,8 +126,28 @@
     <button class="theme-toggle">
         <i class="fas fa-moon"></i>
     </button>
-    
+
+    <!-- Scripts -->
     <script src="../const/shared.js"></script>
     <script src="../resource/js/journal.js"></script>
+    <script src="../resource/js/profile.js"></script>
+
+   <!-- Shared HTML container -->
+<div id="shared-container"></div>
+
+<!-- Load shared HTML and initialize logout -->
+
+<script>
+    fetch('../const/shared.html')
+    .then(res => res.text())
+    .then(html => {
+        document.getElementById('shared-container').innerHTML = html;
+        initLogoutModal(); // IMPORTANT: call after HTML is in DOM
+    })
+    .catch(err => console.error(err));
+</script>
+
+
+
 </body>
 </html>

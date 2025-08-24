@@ -77,11 +77,16 @@
                             <span class="nav__text">Settings</span>
                         </a>
                     </li>
-                     <li class="nav__item">
-                        <a href="#" id="logoutBtn" class="nav__link">
-                            <i class="nav__icon fas fa-sign-out-alt"></i>
-                            <span class="nav__text">Logout</span>
-                        </a>
+
+
+                    <li class="nav__item">
+
+
+                        <a href="#" class="nav__link logout-btn">
+    <i class="nav__icon fas fa-sign-out-alt"></i>
+    <span class="nav__text">Logout</span>
+</a>
+
                     </li>
                 </ul>
             </div>
@@ -94,6 +99,7 @@
             </header>
 
             <div class="meditation-grid">
+                <!-- Meditation Cards -->
                 <section class="dashboard-card meditation-card" data-meditation-id="1">
                     <div class="card-header">
                         <h2>Mindful Breathing</h2>
@@ -167,7 +173,24 @@
         <i class="fas fa-moon"></i>
     </button>
     
+    <!-- Scripts -->
     <script src="../const/shared.js"></script>
     <script src="../resource/js/meditation.js"></script>
+
+    <!-- Logout button (kept as in your original code) -->
+    
+
+    <!-- Shared HTML Container -->
+    <div id="shared-container"></div>
+
+    <!-- Fetch shared.html -->
+    <script>
+    fetch('../const/shared.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('shared-container').innerHTML = html;
+      })
+      .catch(err => console.error(err));
+    </script>
 </body>
 </html>

@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const journalForm = document.getElementById('journalForm');
     const entriesList = document.getElementById('entriesList');
 
+    // --- Simple notification function ---
+    function showNotification(msg) {
+        alert(msg); // or replace with fancier UI later
+    }
+
     // --- Load existing entries from local storage on page load ---
     function loadEntries() {
         const savedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];

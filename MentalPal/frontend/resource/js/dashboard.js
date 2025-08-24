@@ -1,7 +1,8 @@
 // --- File: ../resource/js/dashboard.js ---
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Mood Tracker Functionality
+
+    // -------- Mood Tracker Functionality --------
     const moodOptions = document.querySelectorAll('.mood-option');
     moodOptions.forEach(option => {
         option.addEventListener('click', () => {
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Daily Check-in Form Submission
+    // -------- Daily Check-in Form Submission --------
     const dailyCheckinForm = document.getElementById('dailyCheckinForm');
     if (dailyCheckinForm) {
         dailyCheckinForm.addEventListener('submit', (event) => {
@@ -25,20 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Dynamic User Name
+    // -------- Dynamic User Name --------
     const userNameSpan = document.getElementById('userName');
     const storedUserName = localStorage.getItem('userName') || 'User';
     userNameSpan.textContent = storedUserName;
 
-    // Mood History Chart
+    // -------- Mood History Chart --------
     const moodChartCanvas = document.getElementById('moodChart');
     if (moodChartCanvas) {
         const moodData = {
             labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             datasets: [{
                 label: 'Mood Rating',
-                data: [4, 5, 3, 5, 4, 5, 5], 
-                backgroundColor: 'rgba(216, 191, 216, 0.6)', 
+                data: [4, 5, 3, 5, 4, 5, 5],
+                backgroundColor: 'rgba(216, 191, 216, 0.6)',
                 borderColor: '#d8bfd8',
                 borderWidth: 2,
                 tension: 0.4,
@@ -56,12 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     y: {
                         beginAtZero: true,
                         max: 5,
-                        grid: {
-                            color: 'rgba(234, 234, 234, 0.5)',
-                        },
+                        grid: { color: 'rgba(234, 234, 234, 0.5)' },
                         ticks: {
                             callback: function(value) {
-                                switch (value) {
+                                switch(value) {
                                     case 1: return 'Terrible';
                                     case 2: return 'Bad';
                                     case 3: return 'Neutral';
@@ -74,24 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     },
                     x: {
-                        grid: {
-                            color: 'rgba(234, 234, 234, 0.5)',
-                        },
+                        grid: { color: 'rgba(234, 234, 234, 0.5)' },
                         ticks: {
                             color: getComputedStyle(document.body).getPropertyValue('--text-color-light')
                         }
                     }
                 },
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
+                plugins: { legend: { display: false } }
             }
         };
 
         const moodChart = new Chart(moodChartCanvas, moodChartConfig);
-        
+
         // Update chart colors on theme change
         const observer = new MutationObserver(() => {
             const newTextColor = getComputedStyle(document.body).getPropertyValue('--text-color-light');
@@ -105,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
     }
 
-    // Quick Actions Redirects
+    // -------- Quick Actions Redirects --------
     const journalBtn = document.querySelector('.quick-actions .btn-block:nth-child(1)');
     const meditationBtn = document.querySelector('.quick-actions .btn-block:nth-child(2)');
     const challengesBtn = document.querySelector('.quick-actions .btn-block:nth-child(3)');
@@ -114,18 +107,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (meditationBtn) meditationBtn.addEventListener('click', () => window.location.href = 'meditation.html');
     if (challengesBtn) challengesBtn.addEventListener('click', () => window.location.href = 'challenges.html');
 
-    // Logout Functionality
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const confirmed = confirm("Are you sure you want to log out?");
-            if (confirmed) {
-                localStorage.removeItem('userName');
-                localStorage.removeItem('theme');
-                localStorage.removeItem('registeredUsers'); 
-                window.location.href = 'login.html'; 
-            }
-        });
-    }
 });
+
+// -------- Logout Modal Function --------
+function initLogout() {
+    const logoutBtns = document.querySelectorAll('.logout-btn');
+    const logoutModal = document.getElementById('logoutConfirmModal'); // match ID with HTML
+    if (!logoutModal) return;
+
+    const closeBtn = logoutModal.querySelector('.close-btn');
+    const cancelBtn = document.getElementById('cancelLogout');
+    const confirmBtn = document.getElementById('confirmLogout');
+
+    logoutBtns.forEach(btn => btn.addEventListener('click', e => {
+        e.preventDefault();
+        logoutModal.style.display = 'flex';
+    }));
+
+    closeBtn?.addEventListener('click', () => logoutModal.style.display = 'none');
+    cancelBtn?.addEventListener('click', () => logoutModal.style.display = 'none');
+    window.addEventListener('click', e => { if (e.target === logoutModal) logoutModal.style.display = 'none'; });
+
+    confirmBtn?.addEventListener('click', () => {
+        localStorage.clear();
+        window.location.href = 'login.html';
+    });
+}

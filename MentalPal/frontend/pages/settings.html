@@ -24,65 +24,20 @@
 
             <nav class="sidebar__nav">
                 <ul class="nav">
-                    <li class="nav__item">
-                        <a href="dashboard.html" class="nav__link">
-                            <i class="nav__icon fas fa-home"></i>
-                            <span class="nav__text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="journal.html" class="nav__link">
-                            <i class="nav__icon fas fa-book-open"></i>
-                            <span class="nav__text">Journal</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="meditation.html" class="nav__link">
-                            <i class="nav__icon fas fa-spa"></i>
-                            <span class="nav__text">Meditation</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="calendar.html" class="nav__link">
-                            <i class="nav__icon fas fa-calendar-alt"></i>
-                            <span class="nav__text">Calendar</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="chatbot.html" class="nav__link">
-                            <i class="nav__icon fas fa-robot"></i>
-                            <span class="nav__text">Chatbot</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="challenges.html" class="nav__link">
-                            <i class="nav__icon fas fa-trophy"></i>
-                            <span class="nav__text">Challenges</span>
-                        </a>
-                    </li>
+                    <li class="nav__item"><a href="dashboard.html" class="nav__link"><i class="nav__icon fas fa-home"></i><span class="nav__text">Dashboard</span></a></li>
+                    <li class="nav__item"><a href="journal.html" class="nav__link"><i class="nav__icon fas fa-book-open"></i><span class="nav__text">Journal</span></a></li>
+                    <li class="nav__item"><a href="meditation.html" class="nav__link"><i class="nav__icon fas fa-spa"></i><span class="nav__text">Meditation</span></a></li>
+                    <li class="nav__item"><a href="calendar.html" class="nav__link"><i class="nav__icon fas fa-calendar-alt"></i><span class="nav__text">Calendar</span></a></li>
+                    <li class="nav__item"><a href="chatbot.html" class="nav__link"><i class="nav__icon fas fa-robot"></i><span class="nav__text">Chatbot</span></a></li>
+                    <li class="nav__item"><a href="challenges.html" class="nav__link"><i class="nav__icon fas fa-trophy"></i><span class="nav__text">Challenges</span></a></li>
                 </ul>
             </nav>
 
             <div class="sidebar__footer">
                 <ul class="nav">
-                    <li class="nav__item">
-                        <a href="profile.html" class="nav__link">
-                            <i class="nav__icon fas fa-user-circle"></i>
-                            <span class="nav__text">Profile</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="settings.html" class="nav__link active">
-                            <i class="nav__icon fas fa-cog"></i>
-                            <span class="nav__text">Settings</span>
-                        </a>
-                    </li>
-                     <li class="nav__item">
-                        <a href="#" id="logoutBtn" class="nav__link">
-                            <i class="nav__icon fas fa-sign-out-alt"></i>
-                            <span class="nav__text">Logout</span>
-                        </a>
-                    </li>
+                    <li class="nav__item"><a href="profile.html" class="nav__link"><i class="nav__icon fas fa-user-circle"></i><span class="nav__text">Profile</span></a></li>
+                    <li class="nav__item"><a href="settings.html" class="nav__link active"><i class="nav__icon fas fa-cog"></i><span class="nav__text">Settings</span></a></li>
+                    <li class="nav__item"><a href="#" id="logoutBtn" class="nav__link"><i class="nav__icon fas fa-sign-out-alt"></i><span class="nav__text">Logout</span></a></li>
                 </ul>
             </div>
         </aside>
@@ -115,24 +70,15 @@
                     <h2 class="section-title">Notifications</h2>
                     <div class="setting-option">
                         <span>Journal Reminders</span>
-                        <label class="switch">
-                            <input type="checkbox" id="journalRemindersToggle">
-                            <span class="slider round"></span>
-                        </label>
+                        <label class="switch"><input type="checkbox" id="journalRemindersToggle"><span class="slider round"></span></label>
                     </div>
                     <div class="setting-option">
                         <span>Meditation Reminders</span>
-                        <label class="switch">
-                            <input type="checkbox" id="meditationRemindersToggle">
-                            <span class="slider round"></span>
-                        </label>
+                        <label class="switch"><input type="checkbox" id="meditationRemindersToggle"><span class="slider round"></span></label>
                     </div>
                     <div class="setting-option">
                         <span>Challenge Updates</span>
-                        <label class="switch">
-                            <input type="checkbox" id="challengeUpdatesToggle">
-                            <span class="slider round"></span>
-                        </label>
+                        <label class="switch"><input type="checkbox" id="challengeUpdatesToggle"><span class="slider round"></span></label>
                     </div>
                 </section>
                 
@@ -140,80 +86,62 @@
                     <h2>Security & Account</h2>
                     <div class="setting-option">
                         <span>Two-Factor Authentication (2FA)</span>
-                        <label class="switch">
-                            <input type="checkbox" id="twoFactorToggle">
-                            <span class="slider round"></span>
-                        </label>
+                        <label class="switch"><input type="checkbox" id="twoFactorToggle"><span class="slider round"></span></label>
                     </div>
                     <div class="setting-option">
                         <span>Change Password</span>
                         <button id="changePasswordBtn" class="btn btn-secondary">Change</button>
                     </div>
+                </section>
                     
                 <section class="settings-section">
                     <h2>App Integrations</h2>
-                    <div class="setting-option">
-                        <span>Google Fit</span>
-                        <button id="connectGoogleFitBtn" class="btn btn-secondary">Connect</button>
-                    </div>
-                    <div class="setting-option">
-                        <span>Apple Health</span>
-                        <button id="connectAppleHealthBtn" class="btn btn-secondary">Connect</button>
-                    </div>
-                    <div class="setting-option">
-                        <span>Spotify</span>
-                        <button id="connectSpotifyBtn" class="btn btn-secondary">Connect</button>
-                    </div>
+                    <div class="setting-option"><span>Google Fit</span><button id="connectGoogleFitBtn" class="btn btn-secondary">Connect</button></div>
+                    <div class="setting-option"><span>Apple Health</span><button id="connectAppleHealthBtn" class="btn btn-secondary">Connect</button></div>
+                    <div class="setting-option"><span>Spotify</span><button id="connectSpotifyBtn" class="btn btn-secondary">Connect</button></div>
                 </section>
 
                 <section class="settings-section">
                     <h2>Support & Legal</h2>
-                    <div class="setting-option">
-                        <span>Help Center</span>
-                        <a href="#" class="btn btn-secondary">Go to Help</a>
-                    </div>
-                    <div class="setting-option">
-                        <span>Report an Issue</span>
-                        <a href="#" class="btn btn-secondary">Report</a>
-                    </div>
-                    <div class="setting-option">
-                        <span>Terms of Service</span>
-                        <a href="#" class="btn btn-secondary">View</a>
-                    </div>
+                    <div class="setting-option"><span>Help Center</span><a href="#" class="btn btn-secondary">Go to Help</a></div>
+                    <div class="setting-option"><span>Report an Issue</span><a href="#" class="btn btn-secondary">Report</a></div>
+                    <div class="setting-option"><span>Terms of Service</span><a href="#" class="btn btn-secondary">View</a></div>
                 </section>
             </div>
         </main>
     </div>
 
+    
+    <!-- Change Password Modal -->
     <div id="changePasswordModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <div class="modal-header">
-                <h2>Change Password</h2>
-            </div>
+            <div class="modal-header"><h2>Change Password</h2></div>
             <form id="changePasswordForm">
-                <div class="form-group">
-                    <label for="currentPassword" class="form-label">Current Password</label>
-                    <input type="password" id="currentPassword" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="newPassword" class="form-label">New Password</label>
-                    <input type="password" id="newPassword" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
-                    <input type="password" id="confirmNewPassword" class="form-control" required>
-                </div>
+                <div class="form-group"><label for="currentPassword" class="form-label">Current Password</label><input type="password" id="currentPassword" class="form-control" required></div>
+                <div class="form-group"><label for="newPassword" class="form-label">New Password</label><input type="password" id="newPassword" class="form-control" required></div>
+                <div class="form-group"><label for="confirmNewPassword" class="form-label">Confirm New Password</label><input type="password" id="confirmNewPassword" class="form-control" required></div>
                 <button type="submit" class="btn btn-primary btn-block">Update Password</button>
             </form>
         </div>
     </div>
     
-    <button class="theme-toggle">
-        <i class="fas fa-moon"></i>
-    </button>
+    <button class="theme-toggle"><i class="fas fa-moon"></i></button>
     
+    <!-- Shared container -->
+    <div id="shared-container"></div>
+
+    <!-- Scripts -->
     <script src="../const/shared.js"></script>
     <script src="../resource/js/settings.js"></script>
+    <script>
+      fetch('../const/shared.html') // ✅ correct path
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('shared-container').innerHTML = html;
+        })
+        .catch(err => console.error(err));
+    </script>
+
 </body>
 </html>

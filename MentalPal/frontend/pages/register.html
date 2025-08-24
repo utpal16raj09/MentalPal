@@ -60,7 +60,25 @@
         <i class="fas fa-moon"></i>
     </button>
 
+    <!-- Logout button (kept as in your original code) -->
+    <a href="#" class="logout-btn">Logout</a>
+
+    <!-- Shared HTML container -->
+    <div id="shared-container"></div>
+
+    <!-- Scripts -->
+    <script src="../const/shared.js"></script>
     <script src="../resource/js/register.js"></script>
+    <script src="../resource/js/profile.js"></script>
+
+    <script>
+      fetch('../const/shared.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('shared-container').innerHTML = html;
+        })
+        .catch(err => console.error(err));
+    </script>
 
 </body>
 </html>

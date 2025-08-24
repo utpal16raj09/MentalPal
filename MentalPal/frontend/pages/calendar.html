@@ -11,6 +11,8 @@
 </head>
 <body>
     <div class="app-container">
+
+        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar__header">
                 <a href="dashboard.html" class="sidebar__logo">
@@ -77,8 +79,9 @@
                             <span class="nav__text">Settings</span>
                         </a>
                     </li>
-                     <li class="nav__item">
-                        <a href="#" id="logoutBtn" class="nav__link">
+                    <!-- Logout button -->
+                    <li class="nav__item">
+                        <a href="#" class="nav__link logout-btn">
                             <i class="nav__icon fas fa-sign-out-alt"></i>
                             <span class="nav__text">Logout</span>
                         </a>
@@ -86,7 +89,8 @@
                 </ul>
             </div>
         </aside>
-        
+
+        <!-- Main Content -->
         <main class="main-content">
             <header class="calendar-header">
                 <div class="calendar-nav">
@@ -107,7 +111,7 @@
                     <span>Sat</span>
                 </div>
                 <div id="calendarGrid" class="calendar-grid">
-                    </div>
+                </div>
             </div>
 
             <div class="event-list-container dashboard-card">
@@ -118,23 +122,41 @@
             </div>
         </main>
     </div>
-    
+
+    <!-- Theme toggle -->
     <button class="theme-toggle">
         <i class="fas fa-moon"></i>
     </button>
-    
-    <script src="../const/shared.js"></script>
+
+    <!-- Shared logout modal container -->
+    <div id="shared-container"></div>
+
+   <script>
+    fetch('../const/shared.html') // path to shared.html
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('shared-container').innerHTML = html;
+
+            // Now load shared.js only AFTER shared.html is injected
+            const script = document.createElement("script");
+            script.src = "../const/shared.js";
+            document.body.appendChild(script);
+        })
+        .catch(err => console.error(err));
+</script>
+
+
+   
+
+    <!-- Page-specific JS -->
     <script src="../resource/js/calendar.js"></script>
     <script>
-      // ✅ Show current month & year instead of 1970
-      const currentMonthYearElement = document.getElementById("currentMonthYear");
-      const now = new Date();
-      const options = { year: "numeric", month: "long" };
-      currentMonthYearElement.textContent = now.toLocaleDateString("en-US", options);
+        // Show current month & year
+        const currentMonthYearElement = document.getElementById("currentMonthYear");
+        const now = new Date();
+        const options = { year: "numeric", month: "long" };
+        currentMonthYearElement.textContent = now.toLocaleDateString("en-US", options);
     </script>
+
 </body>
 </html>
-
-
-
-

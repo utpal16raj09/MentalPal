@@ -11,6 +11,7 @@
 </head>
 <body>
     <div class="app-container">
+        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar__header">
                 <a href="dashboard.html" class="sidebar__logo">
@@ -24,69 +25,25 @@
 
             <nav class="sidebar__nav">
                 <ul class="nav">
-                    <li class="nav__item">
-                        <a href="dashboard.html" class="nav__link">
-                            <i class="nav__icon fas fa-home"></i>
-                            <span class="nav__text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="journal.html" class="nav__link">
-                            <i class="nav__icon fas fa-book-open"></i>
-                            <span class="nav__text">Journal</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="meditation.html" class="nav__link">
-                            <i class="nav__icon fas fa-spa"></i>
-                            <span class="nav__text">Meditation</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="calendar.html" class="nav__link">
-                            <i class="nav__icon fas fa-calendar-alt"></i>
-                            <span class="nav__text">Calendar</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="chatbot.html" class="nav__link active">
-                            <i class="nav__icon fas fa-robot"></i>
-                            <span class="nav__text">Chatbot</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="challenges.html" class="nav__link">
-                            <i class="nav__icon fas fa-trophy"></i>
-                            <span class="nav__text">Challenges</span>
-                        </a>
-                    </li>
+                    <li class="nav__item"><a href="dashboard.html" class="nav__link"><i class="nav__icon fas fa-home"></i><span class="nav__text">Dashboard</span></a></li>
+                    <li class="nav__item"><a href="journal.html" class="nav__link"><i class="nav__icon fas fa-book-open"></i><span class="nav__text">Journal</span></a></li>
+                    <li class="nav__item"><a href="meditation.html" class="nav__link"><i class="nav__icon fas fa-spa"></i><span class="nav__text">Meditation</span></a></li>
+                    <li class="nav__item"><a href="calendar.html" class="nav__link"><i class="nav__icon fas fa-calendar-alt"></i><span class="nav__text">Calendar</span></a></li>
+                    <li class="nav__item"><a href="chatbot.html" class="nav__link active"><i class="nav__icon fas fa-robot"></i><span class="nav__text">Chatbot</span></a></li>
+                    <li class="nav__item"><a href="challenges.html" class="nav__link"><i class="nav__icon fas fa-trophy"></i><span class="nav__text">Challenges</span></a></li>
                 </ul>
             </nav>
 
             <div class="sidebar__footer">
                 <ul class="nav">
-                    <li class="nav__item">
-                        <a href="profile.html" class="nav__link">
-                            <i class="nav__icon fas fa-user-circle"></i>
-                            <span class="nav__text">Profile</span>
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="settings.html" class="nav__link">
-                            <i class="nav__icon fas fa-cog"></i>
-                            <span class="nav__text">Settings</span>
-                        </a>
-                    </li>
-                     <li class="nav__item">
-                        <a href="#" id="logoutBtn" class="nav__link">
-                            <i class="nav__icon fas fa-sign-out-alt"></i>
-                            <span class="nav__text">Logout</span>
-                        </a>
-                    </li>
+                    <li class="nav__item"><a href="profile.html" class="nav__link"><i class="nav__icon fas fa-user-circle"></i><span class="nav__text">Profile</span></a></li>
+                    <li class="nav__item"><a href="settings.html" class="nav__link"><i class="nav__icon fas fa-cog"></i><span class="nav__text">Settings</span></a></li>
+                    <li class="nav__item"><a href="#" class="nav__link logout-btn"><i class="nav__icon fas fa-sign-out-alt"></i><span class="nav__text">Logout</span></a></li>
                 </ul>
             </div>
         </aside>
-        
+
+        <!-- Main Content -->
         <main class="main-content">
             <header class="chatbot-header">
                 <img src="../resource/images/icon.png" alt="Chatbot Avatar" class="chatbot-avatar-small">
@@ -103,19 +60,30 @@
                 </div>
                 <form id="chatForm" class="chat-form">
                     <input type="text" id="chatInput" placeholder="Type your message..." class="form-control">
-                    <button type="submit" class="btn btn-primary chat-send-btn">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
+                    <button type="submit" class="btn btn-primary chat-send-btn"><i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
         </main>
     </div>
-    
-    <button class="theme-toggle">
-        <i class="fas fa-moon"></i>
-    </button>
-    
+
+    <!-- Theme toggle -->
+    <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+
+    <!-- Shared logout modal container -->
+    <div id="shared-container"></div>
+    <script>
+        fetch('../const/shared.html') // path to shared.html
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('shared-container').innerHTML = html;
+            })
+            .catch(err => console.error(err));
+    </script>
+
+    <!-- Shared JS -->
     <script src="../const/shared.js"></script>
+
+    <!-- Page-specific JS -->
     <script src="../resource/js/chatbot.js"></script>
 </body>
 </html>

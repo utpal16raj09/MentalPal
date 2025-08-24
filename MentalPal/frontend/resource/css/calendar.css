@@ -8,6 +8,131 @@
     align-items: center;
     margin-bottom: 2rem;
 }
+/* ----------------------
+   Logout Modal Styles
+------------------------*/
+
+/* Modal container - hidden by default */
+#logoutConfirmModal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Show modal when .show class is added */
+#logoutConfirmModal.show {
+    display: flex;
+}
+
+/* Modal content box */
+.logout-modal-content {
+    background-color: #fff; /* You can change to var(--card-bg) for dark mode */
+    margin: 15% auto;
+    padding: 2.5rem;
+    border: 1px solid #ddd; /* or var(--border-color-light) */
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    animation: slideIn 0.4s ease-out;
+}
+
+/* Modal header */
+.logout-modal-content .modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd; /* or var(--border-color-light) */
+}
+
+.logout-modal-content .modal-header h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #333;
+}
+
+/* Close button */
+.logout-modal-content .close-btn {
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logout-modal-content .close-btn:hover,
+.logout-modal-content .close-btn:focus {
+    color: #ff4c4c; /* highlight color */
+}
+
+/* Modal buttons container */
+.logout-modal-content .modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Cancel button */
+#cancelLogout {
+    background-color: #9CA3AF; /* Gray */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#cancelLogout:hover {
+    background-color: #6B7280; /* Darker gray on hover */
+}
+
+/* Confirm Logout button */
+#confirmLogout {
+    background-color: #EF4444; /* Red */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#confirmLogout:hover {
+    background-color: #B91C1C; /* Darker red on hover */
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive modal */
+@media screen and (max-width: 600px) {
+    .logout-modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+}
 
 .calendar-nav {
     display: flex;
