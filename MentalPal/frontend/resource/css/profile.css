@@ -226,6 +226,46 @@
     display: flex;
 }
 
+/* Modal button container */
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px; /* Space from text */
+}
+
+/* Cancel button */
+#cancelLogout {
+    background-color: #9CA3AF; /* Gray-400 */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#cancelLogout:hover {
+    background-color: #6B7280; /* Darker gray on hover */
+}
+
+/* Logout button */
+#confirmLogout {
+    background-color: #EF4444; /* Red-500 */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#confirmLogout:hover {
+    background-color: #B91C1C; /* Darker red on hover */
+}
+
 
 .modal-content {
     background-color: var(--card-bg-light);

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     // --- Data Management & Profile Population ---
     function getRegisteredUserData() {
         const userDataString = localStorage.getItem('registeredUserData');
@@ -29,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const editProfileModal = document.getElementById("editProfileModal");
     const closeBtn = editProfileModal.querySelector(".close-btn");
 
-    // Open modal and populate form
     editProfileBtn.addEventListener("click", () => {
         const userData = getRegisteredUserData();
         if (userData) {
@@ -42,12 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
         editProfileModal.style.display = 'flex';
     });
 
-    // Close modal
     closeBtn.addEventListener("click", () => editProfileModal.style.display = 'none');
     window.addEventListener("click", (e) => { if (e.target === editProfileModal) editProfileModal.style.display = 'none'; });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") editProfileModal.style.display = 'none'; });
 
-    // --- Save Changes Form Submission ---
     const editProfileForm = document.getElementById('editProfileForm');
     editProfileForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -61,33 +59,43 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('registeredUserData', JSON.stringify(updatedData));
         localStorage.setItem('userName', updatedData.firstName);
 
-        showNotification("Profile updated successfully!");
+        // Optional: showNotification function if defined
+        if(typeof showNotification === "function"){
+            showNotification("Profile updated successfully!");
+        }
+
         editProfileModal.style.display = 'none';
         populateProfile();
     });
 
-    // --- View All Activity ---
-    const viewAllActivityBtn = document.getElementById('viewAllActivity');
-    if (viewAllActivityBtn) {
-        viewAllActivityBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.location.href = 'journal.html';
-        });
-    }
-
-    // --- Logout ---
+    // --- Logout logic as you already have ---
     const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
+    const logoutModal = document.getElementById('logoutConfirmModal');
+
+    if (logoutBtn && logoutModal) {
+        const closeLogoutBtn = logoutModal.querySelector('.close-btn');
+        const cancelLogoutBtn = document.getElementById('cancelLogout');
+        const confirmLogoutBtn = document.getElementById('confirmLogout');
+
         logoutBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            if (confirm("Are you sure you want to log out?")) {
+            logoutModal.style.display = 'flex';
+        });
+
+        if (closeLogoutBtn) closeLogoutBtn.addEventListener('click', () => logoutModal.style.display = 'none');
+        if (cancelLogoutBtn) cancelLogoutBtn.addEventListener('click', () => logoutModal.style.display = 'none');
+
+        window.addEventListener('click', (e) => { if (e.target === logoutModal) logoutModal.style.display = 'none'; });
+
+        if (confirmLogoutBtn) {
+            confirmLogoutBtn.addEventListener('click', () => {
                 localStorage.removeItem('userName');
                 localStorage.removeItem('theme');
                 localStorage.removeItem('registeredUsers');
                 localStorage.removeItem('registeredUserData');
                 localStorage.removeItem('userEmail');
                 window.location.href = 'login.html';
-            }
-        });
+            });
+        }
     }
 });
