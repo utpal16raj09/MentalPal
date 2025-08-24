@@ -125,5 +125,16 @@
     
     <script src="../const/shared.js"></script>
     <script src="../resource/js/calendar.js"></script>
+    <script>
+      // ✅ Show current month & year instead of 1970
+      const currentMonthYearElement = document.getElementById("currentMonthYear");
+      const now = new Date();
+      const options = { year: "numeric", month: "long" };
+      currentMonthYearElement.textContent = now.toLocaleDateString("en-US", options);
+    </script>
 </body>
 </html>
+
+
+
+
