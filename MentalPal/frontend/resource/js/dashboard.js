@@ -133,3 +133,22 @@ function initLogout() {
         window.location.href = 'login.html';
     });
 }
+// -------- Theme Toggle --------
+const themeToggleBtn = document.querySelector('.theme-toggle');
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    const currentTheme = document.body.getAttribute('data-theme') || 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.body.setAttribute('data-theme', newTheme);
+
+    // optional: save preference
+    localStorage.setItem('theme', newTheme);
+  });
+}
+
+// -------- Apply saved theme on load --------
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.body.setAttribute('data-theme', savedTheme);
+});
+
