@@ -1,129 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MentalPal Dashboard</title>
-  <link rel="stylesheet" href="../const/shared.css">
-  <style>
-    /* Simple modal styling */
-    .modal {
-      display: none; 
-      position: fixed; 
-      z-index: 1000; 
-      left: 0;
-      top: 0;
-      width: 100%; 
-      height: 100%; 
-      overflow: auto; 
-      background-color: rgba(0,0,0,0.5); 
-      justify-content: center; 
-      align-items: center;
-    }
+<div id="vanta-bg"></div>
 
-    .modal-content {
-      background-color: #fff;
-      margin: auto;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 400px;
-      text-align: center;
-      position: relative;
-    }
+<div class="app-container">
+  <!-- Your actual content -->
+  <h1>Dashboard Content Here</h1>
+  <button class="logout-btn btn btn-logout">Logout</button>
+</div>
 
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    .modal-actions button {
-      margin: 10px;
-    }
-
-    #vanta-bg {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
-    }
-
-    .app-container {
-      position: relative;
-      z-index: 1;
-    }
-  </style>
-</head>
-<body>
-  <!-- Vanta background -->
-  <div id="vanta-bg"></div>
-
-  <!-- Logout confirmation modal -->
-  <div id="logoutConfirmModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <h2>Confirm Logout</h2>
-      <p>Are you sure you want to logout?</p>
-      <div class="modal-actions">
-        <button id="cancelLogout" class="btn btn-secondary">Cancel</button>
-        <button id="confirmLogout" class="btn btn-primary">Logout</button>
-      </div>
+<!-- Logout Modal -->
+<div id="logoutConfirmModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Confirm Logout</h2>
+    <p>Are you sure you want to logout?</p>
+    <div class="modal-actions">
+      <button id="cancelLogout" class="btn btn-cancel">Cancel</button>
+      <button id="confirmLogout" class="btn btn-logout">Logout</button>
     </div>
   </div>
-
-  <!-- Main app container -->
-  <div class="app-container">
-     <!-- sidebar + content -->
-  </div>
-
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
-  <script>
-    // Initialize Vanta background
-    VANTA.WAVES({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.0,
-      scaleMobile: 1.0
-    });
-
-    // Modal functionality
-    const modal = document.getElementById("logoutConfirmModal");
-    const closeBtn = modal.querySelector(".close-btn");
-    const cancelBtn = document.getElementById("cancelLogout");
-    const confirmBtn = document.getElementById("confirmLogout");
-
-    // Open modal function (call this on logout button click)
-    function openLogoutModal() {
-      modal.style.display = "flex";
-    }
-
-    // Close modal
-    closeBtn.onclick = () => modal.style.display = "none";
-    cancelBtn.onclick = () => modal.style.display = "none";
-
-    // Confirm logout action
-    confirmBtn.onclick = () => {
-      modal.style.display = "none";
-      alert("Logged out successfully!"); // Replace with actual logout logic
-      // window.location.href = "/logout"; // Uncomment for actual logout redirect
-    }
-
-    // Close modal if clicked outside
-    window.onclick = (event) => {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
-</body>
-</html>
-
+</div>

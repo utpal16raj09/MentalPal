@@ -55,25 +55,4 @@ fetch('../const/shared.html')
   })
   .catch(err => console.error(err));
 
-  const modal = document.getElementById("logoutConfirmModal");
-const closeBtn = document.querySelector(".close-btn");
-const cancelBtn = document.getElementById("cancelLogout");
-const confirmBtn = document.getElementById("confirmLogout");
-
-// Example: open modal when logout button is clicked
-document.querySelectorAll(".logout-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    modal.style.display = "block";
-  });
-});
-
-closeBtn.onclick = () => modal.style.display = "none";
-cancelBtn.onclick = () => modal.style.display = "none";
-confirmBtn.onclick = () => {
-  window.location.href = "login.html"; // redirect after logout
-};
-
-window.onclick = (e) => {
-  if (e.target === modal) modal.style.display = "none";
-};
-
+  
