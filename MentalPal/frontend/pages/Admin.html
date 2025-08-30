@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - MentalPal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../const/shared.css">
+  <link rel="stylesheet" href="../resource/css/admin.css">
+</head>
+
+<body>
+  <div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar__header">
+        <a href="admin.html" class="sidebar__logo">
+          <img src="../resource/images/logo.png" alt="MentalPal Logo" height="30">
+          <span>Mental Pal</span>
+        </a>
+        <button class="sidebar__toggle">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar__nav">
+        <ul class="nav">
+          <li class="nav__item">
+            <a href="admin.html" class="nav__link active">
+              <i class="nav__icon fas fa-home"></i>
+              <span class="nav__text">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="users.html" class="nav__link">
+              <i class="nav__icon fas fa-users"></i>
+              <span class="nav__text">User Management</span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="reports.html" class="nav__link">
+              <i class="nav__icon fas fa-chart-line"></i>
+              <span class="nav__text">Reports</span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="content.html" class="nav__link">
+              <i class="nav__icon fas fa-file-alt"></i>
+              <span class="nav__text">Content Control</span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="settings.html" class="nav__link">
+              <i class="nav__icon fas fa-cogs"></i>
+              <span class="nav__text">System Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar__footer">
+        <ul class="nav">
+          <li class="nav__item">
+            <a href="profile.html" class="nav__link">
+              <i class="nav__icon fas fa-user-shield"></i>
+              <span class="nav__text">Admin Profile</span>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link logout-btn">
+              <i class="nav__icon fas fa-sign-out-alt"></i>
+              <span class="nav__text">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="dashboard-header">
+        <h1>Welcome back, <span id="adminName">Admin</span>!</h1>
+        <div class="header-actions">
+          <div class="notification-icon">
+            <i class="far fa-bell"></i>
+            <span class="notification-badge">5</span>
+          </div>
+          <div class="user-avatar">
+            <img src="../resource/images/admin-avatar.png" alt="Admin Avatar">
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-grid">
+
+        <!-- Stats -->
+        <section class="dashboard-card">
+          <h2>System Overview</h2>
+          <ul>
+            <li>Total Users: <strong>1,250</strong></li>
+            <li>Active Sessions: <strong>89</strong></li>
+            <li>Reports Generated: <strong>45</strong></li>
+          </ul>
+        </section>
+
+        <!-- Recent Reports -->
+        <section class="dashboard-card">
+          <div class="card-header">
+            <h2>Recent Reports</h2>
+            <a href="reports.html" class="view-all">View All</a>
+          </div>
+          <div class="entries-list">
+            <div class="entry-item">
+              <div class="entry-date">Today</div>
+              <div class="entry-preview">User activity report generated.</div>
+            </div>
+            <div class="entry-item">
+              <div class="entry-date">Yesterday</div>
+              <div class="entry-preview">Weekly engagement summary completed.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="dashboard-card quick-actions">
+          <h2>Quick Actions</h2>
+          <div class="action-buttons">
+            <button class="btn btn-secondary btn-block">
+              <i class="fas fa-user-plus"></i>
+              <span>Add New User</span>
+            </button>
+            <button class="btn btn-secondary btn-block">
+              <i class="fas fa-chart-pie"></i>
+              <span>Generate Report</span>
+            </button>
+            <button class="btn btn-secondary btn-block">
+              <i class="fas fa-sliders-h"></i>
+              <span>Update Settings</span>
+            </button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Shared Modal -->
+  <div id="shared-container"></div>
+  <script>
+    fetch('../const/shared.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('shared-container').innerHTML = html;
+        initLogout();
+      })
+      .catch(err => console.error(err));
+  </script>
+
+</body>
+</html>
